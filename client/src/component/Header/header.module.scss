@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px auto;
+
+  .links {
+    display: flex;
+    gap: 60px;
+
+  }
+}

@@ -1,0 +1,38 @@
+.container {
+  margin: 50px auto;
+
+  .search {
+    display: flex;
+    justify-content: space-between;
+    width: 981px;
+
+    .inp {
+      input {
+        width: 981px;
+      }
+    }
+
+    .btn {
+      width: 981px;
+      padding: 0px 12px;
+      border-radius: 8px;
+      background: var(--Blue-Main-500, #5e96fc);
+    }
+  }
+
+  .blockWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    justify-content: center;
+    gap: 85px;
+
+    .course {
+      border-radius: 12px;
+      border: 1px solid var(--Grey-200, #eaebed);
+      background: #fff;
+      width: 448px;
+      display: flex;
+    }
+  }
+}
