@@ -2,11 +2,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 50px auto;
+  margin: 10 auto;
+  background: var(--White, #fff);
+  padding: 10px 162px;
+
+  h1 {
+    color: var(--Black, #232134);
+    font: 600 24px Poppins;
+    line-height: normal;
+    letter-spacing: -0.48px;
+  }
 
   .links {
     display: flex;
     gap: 60px;
 
+    p {
+      color: #232134;
+      font: 500 16px Inter;
+    }
+
+    &:hover {
+      transition: 0.5s;
+      opacity: 70%;
+    }
   }
 }

@@ -1,5 +1,6 @@
 import Header from '../../component/Header/Header';
 import style from './AdminPage.module.scss';
+import { Button, Input } from '@mantine/core';
 import { useState } from 'react';
 
 const AdminPage = () => {
@@ -13,69 +14,45 @@ const AdminPage = () => {
     if (opt === 'Создание') {
       return (
         <>
-          <div className={style.inputsWrapper}>
-            <div className={style.inpName}>Курс</div>
-            <div className={style.inpWrapper}>
-              <input type='text' />
-            </div>
-          </div>
+          <Input.Wrapper label='Курс' size='md'>
+            <Input placeholder='Введите название курса' />
+          </Input.Wrapper>
 
-          <div className={style.inputsWrapper}>
-            <div className={style.inpName}>Описание</div>
-            <div className={style.inpWrapper}>
-              <input type='text' />
-            </div>
-          </div>
+          <Input.Wrapper label='Описание' size='md'>
+            <Input placeholder='Введите описание курса' />
+          </Input.Wrapper>
 
-          <div className={style.inputsWrapper}>
-            <div className={style.inpName}>Город</div>
-            <div className={style.inpWrapper}>
-              <input type='text' />
-            </div>
-          </div>
+          <Input.Wrapper label='Город' size='md'>
+            <Input placeholder='Введите название города' />
+          </Input.Wrapper>
         </>
       );
     } else if (opt === 'Обновление') {
       return (
         <>
-          <div className={style.inputsWrapper}>
-            <div className={style.inpName}>Курс</div>
-            <div className={style.inpWrapper}>
-              <input type='text' />
-            </div>
-          </div>
+          <Input.Wrapper label='Курс' size='md'>
+            <Input placeholder='Введите название курса' />
+          </Input.Wrapper>
 
-          <div className={style.inputsWrapper}>
-            <div className={style.inpName}>Описание</div>
-            <div className={style.inpWrapper}>
-              <input type='text' />
-            </div>
-          </div>
+          <Input.Wrapper label='Описание' size='md'>
+            <Input placeholder='Введите описание курса' />
+          </Input.Wrapper>
 
-          <div className={style.inputsWrapper}>
-            <div className={style.inpName}>Город</div>
-            <div className={style.inpWrapper}>
-              <input type='text' />
-            </div>
-          </div>
+          <Input.Wrapper label='Город' size='md'>
+            <Input placeholder='Введите название города' />
+          </Input.Wrapper>
 
-          <div className={style.inputsWrapper}>
-            <div className={style.inpName}>ID</div>
-            <div className={style.inpWrapper}>
-              <input type='text' />
-            </div>
-          </div>
+          <Input.Wrapper label='ID' size='md'>
+            <Input placeholder='Введите ID' />
+          </Input.Wrapper>
         </>
       );
     } else {
       return (
         <>
-          <div className={style.inputsWrapper}>
-            <div className={style.inpName}>ID</div>
-            <div className={style.inpWrapper}>
-              <input type='text' />
-            </div>
-          </div>
+          <Input.Wrapper label='ID' size='md'>
+            <Input placeholder='Введите ID' />
+          </Input.Wrapper>
         </>
       );
     }
@@ -92,9 +69,13 @@ const AdminPage = () => {
           <h2 onClick={changeOpt}>Удаление</h2>
         </div>
 
-        {showContent()}
-        
-        <div className='btn'>Применить</div>
+        <div className={style.fieldsWrapper}>
+          {showContent()}
+
+          <Button variant='filled' radius='md'>
+            Применить
+          </Button>
+        </div>
       </div>
     </div>
   );

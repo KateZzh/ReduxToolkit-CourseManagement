@@ -1,5 +1,7 @@
 import style from './homePage.module.scss';
 import Header from '../../component/Header/Header';
+import { Button, Input, Pagination } from '@mantine/core';
+import { IconSearch, IconMapPin } from '@tabler/icons-react';
 
 const HomePage = () => {
   const arr = [
@@ -47,11 +49,16 @@ const HomePage = () => {
 
       <div className={style.container}>
         <div className={style.search}>
-          <div className={style.inp}>
-            <input type='text' placeholder='Введите название курса' />
-          </div>
-
-          <div className={style.btn}>Поиск</div>
+          <Input
+            placeholder='Введите название курса'
+            leftSection={<IconSearch size={16} />}
+            size='md'
+            rightSection={
+              <Button variant='filled' size='xs' radius='md' style={{ marginRight: '50px' }}>
+                Поиск
+              </Button>
+            }
+          />
         </div>
 
         <div className={style.blockWrapper}>
@@ -60,12 +67,15 @@ const HomePage = () => {
               <h2>{el.header}</h2>
               <p>{el.description}</p>
 
-              <div className={style.location}>{el.location}</div>
+              <div className={style.wrapperLocation}>
+                <IconMapPin size={16} />
+                <div className={style.location}>{el.location}</div>
+              </div>
             </div>
           ))}
         </div>
 
-        <div className={style.pagination}></div>
+        <Pagination total={3} style={{ paddingBottom: '40px' }} />
       </div>
     </div>
   );
