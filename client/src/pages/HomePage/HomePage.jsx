@@ -2,46 +2,50 @@ import style from './homePage.module.scss';
 import Header from '../../component/Header/Header';
 import { Button, Input, Pagination } from '@mantine/core';
 import { IconSearch, IconMapPin } from '@tabler/icons-react';
+import { useGetAllCoursesQuery } from "../../service/serviceCourse"
 
 const HomePage = () => {
-  const arr = [
-    {
-      id: 1,
-      header: 'C# Couse',
-      description: 'В течение курса студенты ознакомятся с ...',
-      location: 'Минск',
-    },
-    {
-      id: 2,
-      header: 'C# Couse',
-      description: 'В течение курса студенты ознакомятся с ...',
-      location: 'Минск',
-    },
-    {
-      id: 3,
-      header: 'JavaScript Couse',
-      description: 'В течение курса студенты ознакомятся с ...',
-      location: 'Минск',
-    },
-    {
-      id: 4,
-      header: 'JavaScript Couse',
-      description: 'В течение курса студенты ознакомятся с ...',
-      location: 'Минск',
-    },
-    {
-      id: 5,
-      header: 'JavaScript Couse',
-      description: 'В течение курса студенты ознакомятся с ...',
-      location: 'Минск',
-    },
-    {
-      id: 6,
-      header: 'JavaScript Couse',
-      description: 'В течение курса студенты ознакомятся с ...',
-      location: 'Минск',
-    },
-  ];
+const { data } = useGetAllCoursesQuery();
+console.log(data);
+
+  // const arr = [
+  //   {
+  //     id: 1,
+  //     header: 'C# Couse',
+  //     description: 'В течение курса студенты ознакомятся с ...',
+  //     location: 'Минск',
+  //   },
+  //   {
+  //     id: 2,
+  //     header: 'C# Couse',
+  //     description: 'В течение курса студенты ознакомятся с ...',
+  //     location: 'Минск',
+  //   },
+  //   {
+  //     id: 3,
+  //     header: 'JavaScript Couse',
+  //     description: 'В течение курса студенты ознакомятся с ...',
+  //     location: 'Минск',
+  //   },
+  //   {
+  //     id: 4,
+  //     header: 'JavaScript Couse',
+  //     description: 'В течение курса студенты ознакомятся с ...',
+  //     location: 'Минск',
+  //   },
+  //   {
+  //     id: 5,
+  //     header: 'JavaScript Couse',
+  //     description: 'В течение курса студенты ознакомятся с ...',
+  //     location: 'Минск',
+  //   },
+  //   {
+  //     id: 6,
+  //     header: 'JavaScript Couse',
+  //     description: 'В течение курса студенты ознакомятся с ...',
+  //     location: 'Минск',
+  //   },
+  // ];
 
   return (
     <div>
@@ -62,14 +66,14 @@ const HomePage = () => {
         </div>
 
         <div className={style.blockWrapper}>
-          {arr.map((el, index) => (
+          {data?.map((el, index) => (
             <div key={index} className={style.course}>
-              <h2>{el.header}</h2>
+              <h2>{el.course}</h2>
               <p>{el.description}</p>
 
               <div className={style.wrapperLocation}>
                 <IconMapPin size={16} />
-                <div className={style.location}>{el.location}</div>
+                <div className={style.city}>{el.city}</div>
               </div>
             </div>
           ))}

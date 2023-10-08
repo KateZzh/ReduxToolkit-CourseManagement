@@ -1,1 +1,38 @@
-[{"id":"65a7b4b0-fec7-11ed-8f80-e1b52ec428ac"},{"id":"6893c700-05ec-11ee-bb18-9f0669c4ae4f","name":"hanna"},{"id":"86fc1c90-0625-11ee-9e8f-2f57a48a6143","test":"MYTESTIK"}]
+[
+  {
+    "id": "4e7689f0-65ed-11ee-9218-e107b023684f",
+    "course": "C# Couse",
+    "description": "В течение курса студенты ознакомятся с ...",
+    "city": "Минск"
+  },
+  {
+    "id": "5b542600-65ed-11ee-945c-715ef84abb29",
+    "course": "C# Couse",
+    "description": "В течение курса студенты ознакомятся с ...",
+    "city": "Минск"
+  },
+  {
+    "id": "edd95420-65f5-11ee-87b5-f19a459941aa",
+    "course": "C# Couse",
+    "description": "В течение курса студенты ознакомятся с ...",
+    "city": "Минск"
+  },
+  {
+    "id": "f9643170-65f5-11ee-a812-799e0d89afd7",
+    "course": "JavaScript Couse",
+    "description": "В течение курса студенты ознакомятся с ...",
+    "city": "Минск"
+  },
+  {
+    "id": "f9643170-65f5-11ee-a812-799e0d89afd7",
+    "course": "JavaScript Couse",
+    "description": "В течение курса студенты ознакомятся с ...",
+    "city": "Минск"
+  },
+  {
+    "id": "f9643170-65f5-11ee-a812-799e0d89afd7",
+    "course": "JavaScript Couse",
+    "description": "В течение курса студенты ознакомятся с ...",
+    "city": "Минск"
+  }
+]

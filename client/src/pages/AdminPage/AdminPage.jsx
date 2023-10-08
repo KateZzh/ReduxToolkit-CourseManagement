@@ -1,13 +1,45 @@
 import Header from '../../component/Header/Header';
 import style from './AdminPage.module.scss';
 import { Button, Input } from '@mantine/core';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import {
+  useCreateCourseMutation,
+  useUpdateCourseMutation,
+  useDeleteCourseMutation,
+} from '../../service/serviceCourse';
 
 const AdminPage = () => {
   const [opt, setOpt] = useState('Создание');
+  const [inp, setInp] = useState({});
+
+  const [createCourse] = useCreateCourseMutation();
+  const [updateCourse] = useUpdateCourseMutation();
+  const [deleteCourse] = useDeleteCourseMutation();
 
   const changeOpt = (e) => {
     setOpt(e.target.textContent);
+  };
+
+  const getInputsVal = (e) => setInp({ ...inp, [e.target.name]: e.target.value });
+
+  useEffect(() => {
+    setInp({});
+  }, [opt]);
+
+  const sendData = async () => {
+    if (opt === 'Создание') {
+      const data = await createCourse(inp);
+      console.log(data.data);
+      window.location.reload();
+    } else if (opt === 'Обновление') {
+      const data = await updateCourse(inp);
+      console.log(data.data);
+      window.location.reload();
+    } else {
+      const data = await deleteCourse(inp);
+      console.log(data.data);
+      window.location.reload();
+    }
   };
 
   const showContent = () => {
@@ -15,15 +47,30 @@ const AdminPage = () => {
       return (
         <>
           <Input.Wrapper label='Курс' size='md'>
-            <Input placeholder='Введите название курса' />
+            <Input
+              placeholder='Введите название курса'
+              name='course'
+              onChange={getInputsVal}
+              value={inp?.course || ''}
+            />
           </Input.Wrapper>
 
           <Input.Wrapper label='Описание' size='md'>
-            <Input placeholder='Введите описание курса' />
+            <Input
+              placeholder='Введите описание курса'
+              name='description'
+              onChange={getInputsVal}
+              value={inp?.description || ''}
+            />
           </Input.Wrapper>
 
           <Input.Wrapper label='Город' size='md'>
-            <Input placeholder='Введите название города' />
+            <Input
+              placeholder='Введите название города'
+              name='city'
+              onChange={getInputsVal}
+              value={inp?.city || ''}
+            />
           </Input.Wrapper>
         </>
       );
@@ -31,19 +78,39 @@ const AdminPage = () => {
       return (
         <>
           <Input.Wrapper label='Курс' size='md'>
-            <Input placeholder='Введите название курса' />
+            <Input
+              placeholder='Введите название курса'
+              name='course'
+              onChange={getInputsVal}
+              value={inp?.course || ''}
+            />
           </Input.Wrapper>
 
           <Input.Wrapper label='Описание' size='md'>
-            <Input placeholder='Введите описание курса' />
+            <Input
+              placeholder='Введите описание курса'
+              name='description'
+              onChange={getInputsVal}
+              value={inp?.description || ''}
+            />
           </Input.Wrapper>
 
           <Input.Wrapper label='Город' size='md'>
-            <Input placeholder='Введите название города' />
+            <Input
+              placeholder='Введите название города'
+              name='city'
+              onChange={getInputsVal}
+              value={inp?.city || ''}
+            />
           </Input.Wrapper>
 
           <Input.Wrapper label='ID' size='md'>
-            <Input placeholder='Введите ID' />
+            <Input
+              placeholder='Введите ID'
+              name='id'
+              onChange={getInputsVal}
+              value={inp?.id || ''}
+            />
           </Input.Wrapper>
         </>
       );
@@ -51,7 +118,12 @@ const AdminPage = () => {
       return (
         <>
           <Input.Wrapper label='ID' size='md'>
-            <Input placeholder='Введите ID' />
+            <Input
+              placeholder='Введите ID'
+              name='id'
+              onChange={getInputsVal}
+              value={inp?.id || ''}
+            />
           </Input.Wrapper>
         </>
       );
@@ -72,7 +144,7 @@ const AdminPage = () => {
         <div className={style.fieldsWrapper}>
           {showContent()}
 
-          <Button variant='filled' radius='md'>
+          <Button variant='filled' radius='md' onClick={sendData}>
             Применить
           </Button>
         </div>

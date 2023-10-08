@@ -1,6 +1,6 @@
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
   font-style: normal;
   font-family: Inter;
@@ -8,7 +8,7 @@
 
 body {
   max-width: 1220px;
-  margin: auto;
+  margin:0 auto !important;
   background-color: #f7f7f8;
 }
 
